@@ -1,24 +1,24 @@
-const logoMenu = document.querySelector(".logoMenuImg");
-const contItems = document.querySelector(".contItems");
-const arrItems = document.querySelectorAll(".items");
+const iconeResponsive = document.querySelector(".icone__responsive");
+const navbarItems = document.querySelector(".navbar__items");
+const arrItems = document.querySelectorAll(".navbar__item");
 
-logoMenu.addEventListener("click", () => {
-  if (contItems.className === "contItems") {
-    contItems.className += " responsive";
-    logoMenu.style.width = "30px";
-    logoMenu.style.top = "5px";
-    logoMenu.src = "ressources/close.svg";
+iconeResponsive.addEventListener("click", () => {
+  if (navbarItems.className === "navbar__items") {
+    navbarItems.className += " responsive";
+    iconeResponsive.style.width = "30px";
+    iconeResponsive.style.top = "5px";
+    iconeResponsive.src = "assets/close.svg";
   } else {
-    contItems.className = "contItems";
-    logoMenu.style.width = "30px";
-    logoMenu.style.top = "13px";
-    logoMenu.src = "ressources/menu.svg";
+    navbarItems.className = "navbar__items";
+    iconeResponsive.style.width = "30px";
+    iconeResponsive.style.top = "13px";
+    iconeResponsive.src = "assets/menu.svg";
   }
 });
 
 arrItems.forEach((item) => {
   item.addEventListener("click", () => {
-    contItems.className = "contItems";
-    logoMenu.src = "ressources/menu.svg";
+    navbarItems.className = "navbar__items";
+    iconeResponsive.src = "assets/menu.svg";
   });
 });

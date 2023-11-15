@@ -24,25 +24,27 @@ body {
   border-bottom: 1px solid black;
   position: fixed;
   z-index: 100;
+
+  &__items {
+    font-size: 22px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    margin-right: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: #5f5f5f;
+    }
+  }
 }
 
-.contItems {
-  font-size: 22px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.items {
-  margin-right: 30px;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-}
-.items:hover {
-  color: #5f5f5f;
-}
-
-.logoMenuImg {
+.icone__responsive {
   width: 30px;
   display: none;
   position: absolute;
@@ -51,29 +53,30 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-  .logoMenuImg {
-    display: block;
-  }
-
   .navbar {
     display: block;
+
+    &__items {
+      display: none;
+      border-top: 1px solid black;
+    }
+
+    &__item {
+      background: $blandGris;
+      margin-right: 0;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    &:nth-child(1) {
+      padding-top: 20px;
+    }
   }
 
-  .items:nth-child(1) {
-    padding-top: 20px;
-  }
-  .items {
-    background: $blandGris;
-    margin-right: 0;
-    padding: 10px 20px;
+  .banner {
     display: block;
   }
 
-  .contItems {
-    display: none;
-    border-top: 1px solid black;
-    /* background: green; */
-  }
   /* Classe à toggle */
   .responsive {
     display: block;
@@ -83,77 +86,82 @@ body {
 
 // Accueil
 
-.accueil {
+.banner {
   height: 800px;
   width: 100%;
   background: $sombre;
-  background: url("../ressources/home.jpg");
+  background: url("../assets/home.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  h1 {
+  &__title {
     font-family: "Abril Fatface", sans-serif;
     color: $blancCasse;
     font-size: 70px;
     letter-spacing: 5px;
     margin: 0;
     position: relative;
-    padding-top: 150px;
 
-    &::first-letter {
+    &--first-letter {
       font-size: 120px;
     }
   }
 
-  .sousTitreP {
+  &__subtitle {
     color: $blancCasse;
     font-family: "Poppins", sans-serif;
     font-size: 22px;
   }
 }
+
 @media screen and (max-width: 1000px) {
-  .accueil h1 {
-    font-size: 50px;
-  }
-}
-@media screen and (max-width: 760px) {
-  .accueil {
-    height: 600px;
-  }
-  .accueil h1 {
-    font-size: 30px;
-  }
-  .accueil .sousTitreP {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 550px) {
-  .accueil {
-    height: 500px;
-    align-items: flex-start;
-  }
-  .accueil h1 {
-    margin: 0px 20px;
-  }
-  .accueil .sousTitreP {
-    margin: 0px 20px;
-  }
-  .accueil h1::first-letter {
+  .banner__title {
     font-size: 50px;
   }
 }
 
+@media screen and (max-width: 760px) {
+  .banner {
+    height: 600px;
+    .banner__title {
+      font-size: 30px;
+    }
+    .banner__subtitle {
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .banner {
+    height: 500px;
+    align-items: flex-start;
+    .banner__title {
+      margin: 0px 20px;
+    }
+    .banner__subtitle {
+      margin: 0px 20px;
+    }
+    .banner__subtitle::first-letter {
+      font-size: 50px;
+    }
+  }
+}
+
 // Section 1 Txt et image
-.titreSec1 {
+/* Section Title */
+.txt-img__title {
   text-align: center;
   font-size: 40px;
   padding-top: 20px;
 }
 
-.txtImg {
+/* General Styles for the Text and Image Section */
+.txt-img {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,122 +170,126 @@ body {
   border-bottom: 1px dashed lightskyblue;
 }
 
-.flexContainerSection1 {
+/* Container for Flex Items */
+.txt-img__container {
   display: flex;
   justify-content: center;
   width: 1200px;
-
-  .contImgSec1,
-  .contTxtSec1 {
-    width: 45%;
-    margin: 20px;
-  }
-
-  .contImgSec1 img {
-    width: 100%;
-    height: auto;
-    border-radius: 2px;
-  }
-
-  .contTxtSec1 {
-    background: azure;
-    border-radius: 2px;
-
-    h2 {
-      text-align: center;
-      font-size: 35px;
-    }
-
-    .sousTitreSec1 {
-      text-align: center;
-    }
-
-    hr {
-      width: 60px;
-    }
-
-    .txtSec1 {
-      font-size: 19px;
-      padding: 15px;
-
-      &::first-letter {
-        font-size: 30px;
-      }
-    }
-  }
 }
+
+/* Image Container Styles */
+.txt-img__image-container,
+.txt-img__text-container {
+  width: 45%;
+  margin: 20px;
+}
+
+/* Image Styles */
+.txt-img__image {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+/* Text Container Styles */
+.txt-img__text-container {
+  background: azure;
+  border-radius: 2px;
+}
+
+.txt-img__text-container h2 {
+  text-align: center;
+  font-size: 35px;
+}
+
+/* Subtitle Styles */
+.txt-img__subtitle {
+  text-align: center;
+}
+
+/* Separator Styles */
+.txt-img__separator {
+  width: 60px;
+}
+
+/* Text Paragraph Styles */
+.txt-img__text {
+  font-size: 19px;
+  padding: 15px;
+}
+
+.txt-img__text::first-letter {
+  font-size: 30px;
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 1200px) {
-  .txtImg .flexContainerSection1 {
+  .txt-img__container {
     flex-direction: column;
     align-items: center;
     width: 400px;
   }
-  .txtImg .flexContainerSection1 .contImgSec1 {
-    width: 100%;
-  }
-  .txtImg .flexContainerSection1 .contTxtSec1 {
+  .txt-img__image-container,
+  .txt-img__text-container {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 550px) {
-  .titreSec1 {
+  .txt-img__title {
     font-size: 25px;
   }
 }
 
 // Section Portfolio d'images
-.portFolioImg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 20px;
-  width: 100%;
-  padding-bottom: 100px;
-}
-
-.titrePortfolio {
+.portfolio__title {
   font-size: 40px;
   text-align: center;
   padding-bottom: 10px;
+  width: 100%;
 }
-
-.diviseurPort {
-  width: 20%;
-}
-
-.flexImgPortfolio {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 1200px;
-
-  .imgPort {
-    width: 300px;
-    margin: 20px;
-    height: 370px;
-    overflow: hidden;
-    background: #000;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
+@media screen and (max-width: 550px) {
+  .portfolio__title {
+    font-size: 25px;
   }
 }
+.portfolio__divider {
+  width: 20%;
+}
+.portfolio {
+  padding-top: 20px;
+  width: 100%;
+  @include flexCentreX;
+  padding-bottom: 100px;
+  flex-direction: column;
+  align-items: center;
 
-@media screen and (max-width: 550px) {
-  .titrePortfolio {
-    font-size: 25px;
+  .portfolio__images {
+    width: 1200px;
+    @include flexCentreX;
+    flex-wrap: wrap;
+
+    .portfolio__image {
+      width: 300px;
+      margin: 20px;
+      height: 370px;
+      overflow: hidden;
+      background: #000;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }
 
 // Parallax
 
-.paraScroll {
+.parallax {
   width: 100%;
   height: 300px;
-  background: url("../ressources/para.jpg");
+  background: url("../assets/para.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -294,34 +306,36 @@ body {
 
 // Formulaire
 
-.titreForm {
-  text-align: center;
-}
-
 .formulaire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  @include flexCentreX;
   margin-bottom: 60px;
 
-  form {
+  .formulaire__titre {
+    text-align: center;
+  }
+
+  .formulaire__form {
     width: 60%;
 
-    .row {
+    .formulaire__row {
       width: 100%;
 
-      input,
-      textarea {
+      .formulaire__input,
+      .formulaire__textarea {
         width: 100%;
         padding: 12px;
         border: 1px solid #ccc;
         border-radius: 4px;
       }
 
-      textarea {
+      .formulaire__textarea {
         height: 150px;
       }
 
-      .subBtn {
+      .formulaire__submit-btn {
         width: 30%;
         margin: 0 auto;
         display: block;
@@ -335,8 +349,9 @@ body {
         }
       }
     }
-    .row:nth-child(2),
-    .row:nth-child(3) {
+
+    .formulaire__row:nth-child(2),
+    .formulaire__row:nth-child(3) {
       margin-top: 30px;
     }
   }
