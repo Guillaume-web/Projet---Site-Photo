@@ -138,47 +138,48 @@ body {
 }
 
 .txtImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 20px;
   width: 100%;
-  display: flex;
-  justify-content: center;
   border-bottom: 1px dashed lightskyblue;
 }
-.txtImg .flexContainerSection1 {
+
+.flexContainerSection1 {
   display: flex;
   justify-content: center;
   width: 1200px;
 }
-.txtImg .flexContainerSection1 .contImgSec1 {
+.flexContainerSection1 .contImgSec1,
+.flexContainerSection1 .contTxtSec1 {
   width: 45%;
   margin: 20px;
 }
-.txtImg .flexContainerSection1 .contImgSec1 img {
+.flexContainerSection1 .contImgSec1 img {
   width: 100%;
   height: auto;
   border-radius: 2px;
 }
-.txtImg .flexContainerSection1 .contTxtSec1 {
-  width: 45%;
+.flexContainerSection1 .contTxtSec1 {
   background: azure;
-  margin: 20px;
   border-radius: 2px;
 }
-.txtImg .flexContainerSection1 .contTxtSec1 h2 {
+.flexContainerSection1 .contTxtSec1 h2 {
   text-align: center;
   font-size: 35px;
 }
-.txtImg .flexContainerSection1 .contTxtSec1 .sousTitreSec1 {
+.flexContainerSection1 .contTxtSec1 .sousTitreSec1 {
   text-align: center;
 }
-.txtImg .flexContainerSection1 .contTxtSec1 hr {
+.flexContainerSection1 .contTxtSec1 hr {
   width: 60px;
 }
-.txtImg .flexContainerSection1 .contTxtSec1 .txtSec1 {
+.flexContainerSection1 .contTxtSec1 .txtSec1 {
   font-size: 19px;
   padding: 15px;
 }
-.txtImg .flexContainerSection1 .contTxtSec1 .txtSec1::first-letter {
+.flexContainerSection1 .contTxtSec1 .txtSec1::first-letter {
   font-size: 30px;
 }
 
@@ -200,10 +201,42 @@ body {
     font-size: 25px;
   }
 }
+.portFolioImg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+  padding-bottom: 100px;
+}
+
 .titrePortfolio {
   font-size: 40px;
   text-align: center;
   padding-bottom: 10px;
+}
+
+.diviseurPort {
+  width: 20%;
+}
+
+.flexImgPortfolio {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.flexImgPortfolio .imgPort {
+  width: 300px;
+  margin: 20px;
+  height: 370px;
+  overflow: hidden;
+  background: #000;
+}
+.flexImgPortfolio .imgPort img {
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 550px) {
@@ -211,35 +244,6 @@ body {
     font-size: 25px;
   }
 }
-.diviseurPort {
-  width: 20%;
-}
-
-.portFolioImg {
-  padding-top: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 100px;
-}
-.portFolioImg .flexImgPortfolio {
-  width: 1200px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.portFolioImg .flexImgPortfolio .imgPort {
-  width: 300px;
-  margin: 20px;
-  height: 370px;
-  overflow: hidden;
-  background: #000;
-}
-.portFolioImg .flexImgPortfolio .imgPort img {
-  width: 100%;
-  height: auto;
-}
-
 .paraScroll {
   width: 100%;
   height: 300px;
@@ -266,6 +270,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 60px;
 }
 .formulaire form {
   width: 60%;
